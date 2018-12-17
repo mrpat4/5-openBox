@@ -321,72 +321,173 @@ h1 {
 h2, h3, h4 {
   font-family: "ZCOOL QingKe HuangYou", cursive; }
 
-nav {
+header {
+  background: rgba(62, 0, 12, 0.8);
+  width: 100%;
+  z-index: 10;
   position: -webkit-sticky;
   position: sticky;
   top: 0;
-  width: 100%;
-  background: rgba(0, 0, 0, 0.4); }
-  nav::after {
-    content: "";
-    clear: both;
-    display: table; }
-  nav .nav-ul {
-    float: right;
-    list-style-type: none;
-    margin: 0;
-    padding: 0; }
-    nav .nav-ul .nav-li {
-      display: inline-block;
+  font-family: "Roboto", sans-serif; }
+  header nav {
+    position: absolute;
+    text-align: left;
+    top: 100%;
+    left: 0;
+    background: rgba(62, 0, 12, 0.8);
+    width: 100%;
+    -webkit-transform: scale(1, 0);
+    -ms-transform: scale(1, 0);
+    transform: scale(1, 0);
+    -webkit-transition: -webkit-transform 400ms ease-in-out;
+    transition: -webkit-transform 400ms ease-in-out;
+    -o-transition: transform 400ms ease-in-out;
+    transition: transform 400ms ease-in-out;
+    transition: transform 400ms ease-in-out, -webkit-transform 400ms ease-in-out;
+    -webkit-transform-origin: top;
+    -ms-transform-origin: top;
+    transform-origin: top; }
+    header nav ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 1em 0 0; }
+    header nav li {
+      margin-bottom: 1em;
+      margin-left: 1em; }
+    header nav a {
+      text-decoration: none;
       color: white;
-      padding: 1em 0;
-      margin-left: 1em;
-      font-family: "Roboto", sans-serif;
-      position: relative; }
-      nav .nav-ul .nav-li:last-child {
-        margin-right: 2em; }
-      nav .nav-ul .nav-li a {
-        color: white;
-        text-decoration: none;
-        text-transform: uppercase; }
-        nav .nav-ul .nav-li a::after {
-          content: "";
-          position: absolute;
-          display: block;
-          background-color: white;
-          height: 2px;
-          width: 0;
-          bottom: .5em;
-          -webkit-transition: 250ms ease-in-out;
-          -o-transition: 250ms ease-in-out;
-          transition: 250ms ease-in-out; }
-    nav .nav-ul a:hover::after {
-      width: 100%; }
+      text-transform: uppercase;
+      opacity: 0;
+      -webkit-transition: opacity 150ms ease-in-out;
+      -o-transition: opacity 150ms ease-in-out;
+      transition: opacity 150ms ease-in-out; }
+      header nav a:hover {
+        letter-spacing: .3rem; }
+
+.nav-toggle-label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  cursor: pointer;
+  margin-left: 1em;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center; }
+  .nav-toggle-label span,
+  .nav-toggle-label span::before,
+  .nav-toggle-label span::after {
+    position: relative;
+    display: block;
+    width: 1.5em;
+    height: 2px;
+    border-radius: 2px;
+    background-color: white; }
+  .nav-toggle-label span::before,
+  .nav-toggle-label span::after {
+    content: ""; }
+  .nav-toggle-label span::before {
+    position: absolute;
+    top: 7px; }
+  .nav-toggle-label span::after {
+    position: absolute;
+    bottom: 7px; }
+
+.nav-toggle {
+  display: none; }
+
+.nav-toggle:checked ~ nav {
+  -webkit-transform: scale(1, 1);
+  -ms-transform: scale(1, 1);
+  transform: scale(1, 1); }
+
+.nav-toggle:checked ~ nav a {
+  opacity: 1;
+  -webkit-transition: opacity 250ms ease-in-out 250ms, letter-spacing 250ms ease-in-out;
+  -o-transition: opacity 250ms ease-in-out 250ms, letter-spacing 250ms ease-in-out;
+  transition: opacity 250ms ease-in-out 250ms, letter-spacing 250ms ease-in-out; }
 
 .logo {
-  float: left;
-  list-style-type: none;
-  margin: 0;
+  list-style: none;
   padding: 0;
+  margin: 0;
   position: relative;
-  cursor: pointer;
-  -webkit-transition: 250ms ease-in-out;
-  -o-transition: 250ms ease-in-out;
-  transition: 250ms ease-in-out; }
-  .logo:hover {
-    -webkit-transform: scale(1.05);
-    -ms-transform: scale(1.05);
-    transform: scale(1.05); }
+  left: 35%; }
   .logo li {
     display: inline-block;
     color: white; }
   .logo img {
     width: 40px;
-    margin: 0;
-    padding: .3em 1em 0; }
+    padding: .5em 0; }
   .logo h2 {
     position: absolute;
-    top: -0.3em;
-    left: 2.4em;
-    right: 0;
-    bottom: 0; }
+    top: -.12em; }
+
+@media screen and (min-width: 45em) {
+  .nav-toggle-label {
+    display: none; }
+  header {
+    display: grid;
+    grid-template-columns: auto 1fr 1fr 2fr 3fr auto; }
+  .logo {
+    grid-column: 2/3;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    -webkit-transition: 150ms ease-in-out;
+    -o-transition: 150ms ease-in-out;
+    transition: 150ms ease-in-out; }
+    .logo:hover {
+      -webkit-transform: scale(1.05);
+      -ms-transform: scale(1.05);
+      transform: scale(1.05); }
+  nav {
+    all: unset !important;
+    grid-column: 4/6 !important;
+    position: relative;
+    text-align: left;
+    width: 100%;
+    top: initial;
+    left: initial;
+    display: -webkit-box !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+    -webkit-box-pack: center !important;
+    -ms-flex-pack: center !important;
+    justify-content: center !important; }
+    nav ul {
+      display: -webkit-box !important;
+      display: -ms-flexbox !important;
+      display: flex !important;
+      -webkit-box-pack: end !important;
+      -ms-flex-pack: end !important;
+      justify-content: flex-end !important;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center; }
+    nav a {
+      opacity: 1 !important;
+      position: relative; }
+      nav a:hover {
+        letter-spacing: 0 !important; }
+      nav a::before {
+        content: "";
+        position: absolute;
+        width: 0%;
+        height: 2px;
+        background-color: white;
+        display: block;
+        top: -.5em;
+        -webkit-transition: width 250ms ease-in-out;
+        -o-transition: width 250ms ease-in-out;
+        transition: width 250ms ease-in-out; } }
+
+nav a:hover::before {
+  width: 100%; }

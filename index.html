@@ -7,20 +7,33 @@
     <link rel="stylesheet" href="main.css">
 </head>
 <body>
-    <nav class="navbar">
-        <a href="#"><ul class="logo">
-        <li><img class="logo-img" src="img/Logo2.png" alt="mylogo"></li>
-        <li><h2>OpenBox</h2></li>
-        </ul></a>
-        <ul class="nav-ul">
-            <li class="nav-li"><a href="#">OpenBox</a></li>
-            <li class="nav-li"><a href="#">Test To Buy</a></li>
-            <li class="nav-li"><a href="#">Products</a></li>
-            <li class="nav-li"><a href="#">Step By Steps</a></li>
-            <li class="nav-li"><a href="#">Infography</a></li>
-        </ul>
-    </nav>
-    <header class="hero-header">
+
+    <!-- Navigation -->
+    <header>
+            <ul class="logo">
+                <a href="#">
+                <li><img class="logo-img" src="img/Logo2.png" alt="mylogo"></li>
+                <li><h2>OpenBox</h2></li>
+                </a>
+            </ul>
+            <input class="nav-toggle" type="checkbox" id="nav-toggle" >
+
+        <nav>
+            <ul>
+                <li><a href="#">OpenBox</a></li>
+                <li><a href="#">Test To Buy</a></li>
+                <li><a href="#">Products</a></li>
+                <li><a href="#">Step By Steps</a></li>
+                <li><a href="#">Infography</a></li>
+            </ul>
+        </nav>
+        <label class="nav-toggle-label" for="nav-toggle">
+            <span></span>
+        </label>
+    </header>
+
+    <!-- /Navigation -->
+    <section class="hero-header">
         <h3 class="upper-text">We Warranty our products</h3>
         <h1>Open Box</h1>
         <h3>Your Company</h3>
@@ -33,7 +46,7 @@
             <a href="#"><li></li></a>
             <a href="#"><li></li></a>
         </ul>
-    </header>
+    </section>
     <section class="intro">
         <figure class="fig-left-side">
             <h2>How we Start</h2>

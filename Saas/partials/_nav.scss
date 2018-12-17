@@ -1,92 +1,178 @@
-nav {
-    position: sticky;
-    top: 0;
+header {
+    background: rgba($darkRed, .8);
     width: 100%;
-    background: rgba(black, .4);
+    z-index: 10;
+    position: sticky;
+    top:0;
+    font-family: $p-font;
 
-    &::after {
-        content: "";
-        clear: both;
-        display: table;
-    }
+    nav {
+        position: absolute;
+        text-align: left;
+        top:100%;
+        left: 0;
+        background: rgba($darkRed, .8);
+        width: 100%;
+        transform: scale(1,0);
+        transition: transform 400ms ease-in-out;
+        transform-origin: top;
 
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 1em 0 0;
+        }
 
-    .nav-ul {
-        float: right;
-        list-style-type:none;
-        margin: 0;
-        padding: 0;
-
-        .nav-li {
-            display: inline-block;
-            color: white;
-            padding: 1em 0;
+        li {
+            margin-bottom: 1em;
             margin-left: 1em;
-            font-family: $p-font;
-            position: relative;
-
-            &:last-child{
-                margin-right:2em;
-            }
-
-        
-        a{
-            color:white;
+            
+        }
+        a {
             text-decoration: none;
+            color: white;
             text-transform: uppercase;
+            opacity: 0;
+            transition:opacity 150ms ease-in-out;
 
-            &::after{
-                content: "";
-                position: absolute;
-                display: block;
-                background-color: white;
-                height: 2px;
-                width:0;
-                bottom: .5em;
-                transition: 250ms ease-in-out;
-
+            &:hover {
+                letter-spacing: .3rem;
             }
 
         }
     }
-
-        a:hover::after {
-            width: 100%
-        }
-    }
-}
-
-.logo {
-    float: left;
-    list-style-type:none;
-    margin: 0;
-    padding: 0;
-    position: relative;
+    
+}   
+.nav-toggle-label {
+    position: absolute;
+    top:0;
+    left: 0;
     cursor: pointer;
-    transition: 250ms ease-in-out;
+    margin-left: 1em;
+    height: 100%;
+    display: flex;
+    align-items: center;
 
-    &:hover {
-        transform: scale(1.05)
+    span,
+    span::before,
+    span::after{
+        position: relative;
+        display: block;
+        width: 1.5em;
+        height: 2px;
+        border-radius: 2px;
+        background-color: white;
     }
+    span::before,
+    span::after {
+        content: "";
+    }
+    span::before {
+        position: absolute;
+        top:7px;
+    }
+    span::after {
+        position: absolute;
+        bottom:7px;
+    }    
+}
+.nav-toggle{
+    display: none;
+}
+.nav-toggle:checked ~ nav {
+    transform: scale(1,1);
+}
+.nav-toggle:checked ~ nav a {
+    opacity: 1;
+    transition: opacity 250ms ease-in-out 250ms,
+    letter-spacing 250ms ease-in-out;
+}
+// navigation Logo style
+.logo {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    position: relative;
+    left: 35%;
 
     li {
         display: inline-block;
         color: white;
     }
-    
 
     img {
-        width: 40px;
-        margin:0;
-        padding: .3em 1em 0;
+        width :40px;
+        padding: .5em 0;
+    
+        
     }
-
-    h2{
+    h2 {
         position: absolute;
-        top: -0.3em;
-        left:2.4em;
-        right:0;
-        bottom:0;
+        top:-.12em;
+    }
+}
+
+@media screen and (min-width: 45em){
+    .nav-toggle-label {
+        display: none;
     }
 
+    header {
+        display: grid;
+        grid-template-columns: auto 1fr 1fr 2fr 3fr auto;
+    }
+
+    .logo {
+        grid-column: 2/3;
+        display: flex;
+        justify-content: flex-start;
+        transition: 150ms ease-in-out;
+
+        &:hover {
+            transform: scale(1.05);
+        }
+    }
+    
+    nav {
+        all: unset !important;
+        grid-column: 4/6 !important;
+        position: relative;
+        text-align: left;
+        width: 100%;
+        top: initial;
+        left: initial;
+        display: flex !important;
+        justify-content: center !important;
+
+        ul {
+            display: flex !important;
+            justify-content: flex-end !important;
+            align-items: center;
+        }
+
+        a {
+            opacity: 1!important;
+            position: relative;
+
+            &:hover {
+                letter-spacing: 0!important;
+            }
+
+            &::before {
+                content: "";
+                position: absolute;
+                width: 0%;
+                height: 2px;
+                background-color: white;
+                display: block;
+                top:-.5em;
+                transition :width 250ms ease-in-out;
+            }
+        }
+
+    }
 }
+
+nav a:hover::before {
+    width: 100%;
+  }
