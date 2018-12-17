@@ -1,5 +1,5 @@
 header {
-    background: rgba($darkRed, .8);
+    background: rgba(black, .3);
     width: 100%;
     z-index: 10;
     position: sticky;
@@ -11,7 +11,7 @@ header {
         text-align: left;
         top:100%;
         left: 0;
-        background: rgba($darkRed, .8);
+        background: rgba(black, .3);
         width: 100%;
         transform: scale(1,0);
         transition: transform 400ms ease-in-out;
@@ -108,7 +108,8 @@ header {
     }
     h2 {
         position: absolute;
-        top:-.12em;
+        top:.65em;
+        color: $darkYellow;
     }
 }
 
@@ -163,7 +164,7 @@ header {
                 position: absolute;
                 width: 0%;
                 height: 2px;
-                background-color: white;
+                background-color: $darkYellow;
                 display: block;
                 top:-.5em;
                 transition :width 250ms ease-in-out;
