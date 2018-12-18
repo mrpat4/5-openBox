@@ -549,6 +549,7 @@ nav a:hover::before {
     align-self: end; }
   .hero-header .bottom-text {
     grid-column: 2/3;
+    grid-row: 3/4;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -557,8 +558,8 @@ nav a:hover::before {
     position: relative;
     all: unset;
     z-index: 2;
-    grid-column: 4;
-    grid-row: 4/5;
+    grid-column: 2/3;
+    grid-row: 3/4;
     width: 11em;
     height: 2.5em;
     border: 2px solid white;
@@ -570,8 +571,11 @@ nav a:hover::before {
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
+    -ms-flex-item-align: end;
+    align-self: end;
+    justify-self: end;
     cursor: pointer;
-    margin: 2em 5em; }
+    margin: 2em 5em 2em 0; }
     .hero-header .more .more-text {
       padding-left: 58px;
       position: relative;
@@ -593,7 +597,10 @@ nav a:hover::before {
 
 .more-img {
   position: absolute;
-  background-color: rgba(245, 247, 73, 0.9);
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#e6e651), to(#f5f749));
+  background-image: -webkit-linear-gradient(top, #e6e651 0%, #f5f749 100%);
+  background-image: -o-linear-gradient(top, #e6e651 0%, #f5f749 100%);
+  background-image: linear-gradient(to bottom, #e6e651 0%, #f5f749 100%);
   width: 3em;
   height: 2.5em;
   -webkit-transition: .3s ease-in-out;
@@ -610,3 +617,26 @@ nav a:hover::before {
 
 .more:hover div {
   width: 11em; }
+
+.left-nav {
+  position: fixed;
+  top: 40vh;
+  grid-column: 1/2;
+  grid-row: 2/4;
+  list-style: none;
+  padding: 1em;
+  z-index: 2; }
+  .left-nav li {
+    width: 10px;
+    height: 10px;
+    display: block;
+    border: 1.4px solid #f5f749;
+    border-radius: 50%;
+    margin-top: .5em;
+    -webkit-transition: 250ms linear;
+    -o-transition: 250ms linear;
+    transition: 250ms linear;
+    cursor: pointer; }
+
+li.active {
+  background-color: #f5f749; }
