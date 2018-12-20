@@ -2,7 +2,7 @@
     transform: rotate(-8deg) skew(-8deg,4deg);
     transform-origin:top left;
     background-color: $bgLightYellow;
-    z-index: -1;
+    z-index: 2;
     overflow: hidden;
 }
 
@@ -13,6 +13,7 @@
     padding: 8em 0;
     position: relative;
     transform: rotate(8deg) skew(8deg, -4deg);
+    z-index: 2;
 
     .pro-text {
         width: 60%;
