@@ -890,3 +890,52 @@ figcaption {
       height: 60px; }
     .steps figure h3 {
       padding: 1em 0 0 .5em; }
+
+.info {
+  background-color: #cfbe00;
+  text-align: center;
+  vertical-align: middle;
+  padding: 6em 0 2;
+  position: relative;
+  top: -6em;
+  z-index: 0; }
+  .info img {
+    width: 50%;
+    padding-top: 1em;
+    padding-bottom: 2em; }
+
+footer {
+  color: white;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  top: -6em;
+  position: relative;
+  bottom: 0;
+  background-color: rgba(128, 128, 128, 0.4);
+  margin-bottom: -6em;
+  padding-top: 1em; }
+  footer h4 {
+    font-size: 1.2rem;
+    letter-spacing: .1rem;
+    padding-bottom: 2em;
+    padding-top: 2em;
+    text-transform: uppercase; }
+  footer a {
+    text-decoration: none;
+    color: white;
+    font-family: "Roboto", sans-serif;
+    letter-spacing: .1rem;
+    margin: 0 1.5em;
+    -webkit-transition: .5s ease-in-out;
+    -o-transition: .5s ease-in-out;
+    transition: .5s ease-in-out;
+    position: relative; }
+    footer a:hover {
+      opacity: .4; }
+  footer p {
+    padding: 0;
+    margin: 0;
+    padding-top: 3em;
+    opacity: .3;
+    letter-spacing: .1rem; }

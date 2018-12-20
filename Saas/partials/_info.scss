@@ -1,0 +1,14 @@
+.info {
+    background-color: $bgLightYellow;
+    text-align: center;
+    vertical-align: middle;
+    padding: 6em 0 2;
+    position: relative;
+    top:-6em;
+    z-index: 0;
+    img {
+        width: 50%;
+        padding-top: 1em;
+        padding-bottom: 2em;
+    }
+}
