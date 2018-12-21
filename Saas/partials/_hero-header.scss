@@ -158,3 +158,11 @@
 li.active {
     background-color: $darkYellow;
 }
+
+
+@media only screen and (max-width: 40em){
+    ul.left-nav{
+        display:none;
+        position: relative;
+    }
+}

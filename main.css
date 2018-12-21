@@ -312,7 +312,8 @@ body, html {
   padding: 0;
   background-color: black;
   color: white;
-  overflow-x: hidden; }
+  overflow-x: hidden;
+  scroll-behavior: smooth; }
 
 p {
   font-family: "Roboto", sans-serif; }
@@ -329,8 +330,7 @@ header {
   background: rgba(0, 0, 0, 0.3);
   width: 100%;
   z-index: 10;
-  position: -webkit-sticky;
-  position: sticky;
+  position: fixed;
   top: 0;
   font-family: "Roboto", sans-serif; }
   header nav {
@@ -432,7 +432,7 @@ header {
     top: .65em;
     color: #f5f749; }
 
-@media screen and (min-width: 45em) {
+@media only screen and (min-width: 40em) {
   .nav-toggle-label {
     display: none; }
   header {
@@ -642,12 +642,16 @@ nav a:hover::before {
 li.active {
   background-color: #f5f749; }
 
+@media only screen and (max-width: 40em) {
+  ul.left-nav {
+    display: none;
+    position: relative; } }
+
 .intro {
   background: url(/img/intro.jpg);
   background-position: center;
   background-size: cover;
   width: 100%;
-  min-height: 100%;
   position: relative;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -719,6 +723,27 @@ li.active {
 figcaption {
   -ms-flex-item-align: center;
   align-self: center; }
+
+@media only screen and (max-width: 40em) {
+  .intro {
+    display: grid;
+    grid-template-columns: 1fr; }
+  .fig-left-side {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 90%;
+    display: grid;
+    grid-column: 1;
+    margin: 0;
+    margin-top: 1em; }
+  .fig-right-side {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 90%;
+    display: grid;
+    justify-self: start;
+    grid-column: 1;
+    margin: 0; } }
 
 .background-rotate {
   -webkit-transform: rotate(-8deg) skew(-8deg, 4deg);
@@ -858,6 +883,19 @@ figcaption {
     position: absolute;
     left: calc(50% - 4px); }
 
+@media only screen and (max-width: 40em) {
+  .products .pro-text {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 90%;
+    padding-bottom: 2em; }
+  .pro-line {
+    display: none; }
+  .products .pro-items {
+    display: block; }
+    .products .pro-items li {
+      margin-bottom: 3em; } }
+
 .steps {
   background-color: #F8C537;
   -webkit-transform: rotate(-8deg) skew(-8deg, 4deg);
@@ -882,7 +920,7 @@ figcaption {
     border-radius: 8px;
     margin: 5em 17px 0 0;
     width: 20%;
-    height: 120px;
+    height: 8em;
     -webkit-box-shadow: 0 0 19px 2px rgba(0, 0, 0, 0.2);
     box-shadow: 0 0 19px 2px rgba(0, 0, 0, 0.2);
     padding-top: 16px; }
@@ -890,6 +928,28 @@ figcaption {
       height: 60px; }
     .steps figure h3 {
       padding: 1em 0 0 .5em; }
+
+@media only screen and (max-width: 40em) {
+  .steps {
+    padding-top: 5em; }
+    .steps figure {
+      -webkit-transform: rotate(8deg) skew(8deg, -4deg);
+      -ms-transform: rotate(8deg) skew(8deg, -4deg);
+      transform: rotate(8deg) skew(8deg, -4deg);
+      -webkit-transform-origin: top left;
+      -ms-transform-origin: top left;
+      transform-origin: top left;
+      display: block;
+      margin: 0 auto;
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+      width: 50%;
+      height: 9em;
+      vertical-align: top;
+      margin-top: 2em;
+      margin-bottom: 1em; }
+      .steps figure p {
+        text-align: center; } }
 
 .info {
   background-color: #cfbe00;

@@ -2,7 +2,7 @@ header {
     background: rgba(black, .3);
     width: 100%;
     z-index: 10;
-    position: sticky;
+    position: fixed;
     top:0;
     font-family: $p-font;
 
@@ -113,7 +113,7 @@ header {
     }
 }
 
-@media screen and (min-width: 45em){
+@media only screen and (min-width: 40em){
     .nav-toggle-label {
         display: none;
     }
