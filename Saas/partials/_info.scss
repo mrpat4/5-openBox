@@ -12,3 +12,20 @@
         padding-bottom: 2em;
     }
 }
+@media only screen and (max-width: 40em){
+    .info {
+
+        &::after {
+            content: url("/img/infography-mobile.png");
+            display:block;
+            width: 50%;
+            padding: 2em;
+            margin: 0 1em;
+
+        }
+        img {
+            display: none;
+        }
+    }
+    
+}

@@ -1,5 +1,5 @@
 .hero-header {
-        background-image: url(/img/header-robot.jpg);
+        background-image: url(img/header-robot.jpg);
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
@@ -129,6 +129,7 @@
 }
 
 .left-nav {
+    display: none;
     position: fixed;
     top: 40vh;
     grid-column: 1/2;
@@ -137,11 +138,7 @@
     padding: 1em;
     z-index: 2;
     
-    
-
-
-    li{
-        // content: "";
+    a {
         width: 10px;
         height: 10px;
         display: block;
@@ -149,13 +146,11 @@
         border-radius: 50%;
         margin-top: .5em;
         transition: 250ms linear;
-        cursor: pointer;
-
-         
     }
-}
 
-li.active {
+
+}
+a.active {
     background-color: $darkYellow;
 }
 
@@ -163,6 +158,5 @@ li.active {
 @media only screen and (max-width: 40em){
     ul.left-nav{
         display:none;
-        position: relative;
     }
 }

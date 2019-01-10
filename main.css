@@ -436,9 +436,13 @@ header {
   .nav-toggle-label {
     display: none; }
   header {
+    display: -ms-grid;
     display: grid;
+    -ms-grid-columns: auto 1fr 1fr 2fr 3fr auto;
     grid-template-columns: auto 1fr 1fr 2fr 3fr auto; }
   .logo {
+    -ms-grid-column: 2;
+    -ms-grid-column-span: 1;
     grid-column: 2/3;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -455,6 +459,8 @@ header {
       transform: scale(1.05); }
   nav {
     all: unset !important;
+    -ms-grid-column: 4 !important;
+    -ms-grid-column-span: 2 !important;
     grid-column: 4/6 !important;
     position: relative;
     text-align: left;
@@ -498,14 +504,17 @@ nav a:hover::before {
   width: 100%; }
 
 .hero-header {
-  background-image: url(/img/header-robot.jpg);
+  background-image: url(img/header-robot.jpg);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   position: relative;
   height: 100vh;
+  display: -ms-grid;
   display: grid;
+  -ms-grid-columns: 1fr 2fr 2fr 1fr;
   grid-template-columns: 1fr 2fr 2fr 1fr;
+  -ms-grid-rows: 1fr auto 1fr minmax(7em, auto);
   grid-template-rows: 1fr auto 1fr minmax(7em, auto);
   color: white; }
   .hero-header::before {
@@ -532,7 +541,11 @@ nav a:hover::before {
   .hero-header h3, .hero-header h1 {
     z-index: 2; }
   .hero-header h1 {
+    -ms-grid-column: 2;
+    -ms-grid-column-span: 1;
     grid-column: 2/3;
+    -ms-grid-row: 2;
+    -ms-grid-row-span: 1;
     grid-row: 2/3;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -541,15 +554,22 @@ nav a:hover::before {
     position: relative;
     color: #f5f749; }
   .hero-header .upper-text {
+    -ms-grid-column: 2;
+    -ms-grid-column-span: 1;
     grid-column: 2/3;
+    -ms-grid-row: 1;
+    -ms-grid-row-span: 1;
     grid-row: 1/2;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -ms-flex-item-align: end;
     align-self: end; }
   .hero-header .bottom-text {
+    -ms-grid-column: 2;
+    -ms-grid-column-span: 1;
     grid-column: 2/3;
+    -ms-grid-row: 3;
+    -ms-grid-row-span: 1;
     grid-row: 3/4;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -559,7 +579,11 @@ nav a:hover::before {
     position: relative;
     all: unset;
     z-index: 2;
+    -ms-grid-column: 2;
+    -ms-grid-column-span: 1;
     grid-column: 2/3;
+    -ms-grid-row: 3;
+    -ms-grid-row-span: 1;
     grid-row: 3/4;
     width: 11em;
     height: 2.5em;
@@ -572,7 +596,6 @@ nav a:hover::before {
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
-    -ms-flex-item-align: end;
     align-self: end;
     justify-self: end;
     cursor: pointer;
@@ -620,14 +643,19 @@ nav a:hover::before {
   width: 11em; }
 
 .left-nav {
+  display: none;
   position: fixed;
   top: 40vh;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 1;
   grid-column: 1/2;
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 2;
   grid-row: 2/4;
   list-style: none;
   padding: 1em;
   z-index: 2; }
-  .left-nav li {
+  .left-nav a {
     width: 10px;
     height: 10px;
     display: block;
@@ -636,25 +664,26 @@ nav a:hover::before {
     margin-top: .5em;
     -webkit-transition: 250ms linear;
     -o-transition: 250ms linear;
-    transition: 250ms linear;
-    cursor: pointer; }
+    transition: 250ms linear; }
 
-li.active {
+a.active {
   background-color: #f5f749; }
 
 @media only screen and (max-width: 40em) {
   ul.left-nav {
-    display: none;
-    position: relative; } }
+    display: none; } }
 
 .intro {
-  background: url(/img/intro.jpg);
+  background: url(img/intro.jpg);
   background-position: center;
   background-size: cover;
   width: 100%;
   position: relative;
+  display: -ms-grid;
   display: grid;
+  -ms-grid-columns: (1fr)[4];
   grid-template-columns: repeat(4, 1fr);
+  -ms-grid-rows: (1fr)[2];
   grid-template-rows: repeat(2, 1fr);
   grid-gap: 2em;
   -webkit-box-align: center;
@@ -689,7 +718,11 @@ li.active {
   z-index: 2;
   background: rgba(255, 255, 255, 0.2);
   border-radius: 8px;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 3;
   grid-column: 1/4;
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 1;
   grid-row: 1/2;
   width: 50%;
   padding: 1em 2em .5em;
@@ -698,41 +731,55 @@ li.active {
   -webkit-box-align: end;
   -ms-flex-align: end;
   align-items: end;
+  -ms-grid-row-align: end;
   align-self: end;
   border-left: 3px solid #f5f749;
+  display: -ms-grid;
   display: grid; }
 
 .fig-right-side {
   z-index: 2;
   background: rgba(255, 255, 255, 0.2);
   border-radius: 8px;
+  -ms-grid-column: 5;
+  -ms-grid-column-span: -3;
   grid-column: 5/2;
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 1;
   grid-row: 2/3;
   width: 50%;
   padding: 1em;
   margin: 0;
-  margin: 0 7em 0 0;
+  margin: 0 7em 2em 0;
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  -ms-grid-row-align: start;
   align-self: start;
+  -ms-grid-column-align: end;
   justify-self: end;
   border-right: 3px solid #f5f749;
+  display: -ms-grid;
   display: grid; }
 
 figcaption {
   -ms-flex-item-align: center;
+  -ms-grid-row-align: center;
   align-self: center; }
 
 @media only screen and (max-width: 40em) {
   .intro {
+    display: -ms-grid;
     display: grid;
+    -ms-grid-columns: 1fr;
     grid-template-columns: 1fr; }
   .fig-left-side {
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
     width: 90%;
+    display: -ms-grid;
     display: grid;
+    -ms-grid-column: 1;
     grid-column: 1;
     margin: 0;
     margin-top: 1em; }
@@ -740,8 +787,11 @@ figcaption {
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
     width: 90%;
+    display: -ms-grid;
     display: grid;
+    -ms-grid-column-align: start;
     justify-self: start;
+    -ms-grid-column: 1;
     grid-column: 1;
     margin: 0; } }
 
@@ -789,7 +839,9 @@ figcaption {
   list-style-type: none;
   margin: 0;
   padding: 0;
+  display: -ms-grid;
   display: grid;
+  -ms-grid-columns: (1fr)[6];
   grid-template-columns: repeat(6, 1fr); }
   .pro-items li > figure {
     position: relative;
@@ -819,7 +871,11 @@ figcaption {
           margin-top: .2em; }
 
 .pro-items-left1 {
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 2;
   grid-column: 2/4;
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 1;
   grid-row: 1/2; }
   .pro-items-left1::before {
     content: "";
@@ -832,7 +888,11 @@ figcaption {
     left: calc(50% - 4px); }
 
 .pro-items-right1 {
+  -ms-grid-column: 4;
+  -ms-grid-column-span: 2;
   grid-column: 4/6;
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 1;
   grid-row: 2/3; }
   .pro-items-right1::before {
     content: "";
@@ -845,7 +905,11 @@ figcaption {
     left: calc(50% - 4px); }
 
 .pro-items-left2 {
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 2;
   grid-column: 2/4;
+  -ms-grid-row: 3;
+  -ms-grid-row-span: 1;
   grid-row: 3/4; }
   .pro-items-left2::before {
     content: "";
@@ -858,7 +922,11 @@ figcaption {
     left: calc(50% - 4px); }
 
 .pro-items-right2 {
+  -ms-grid-column: 4;
+  -ms-grid-column-span: 2;
   grid-column: 4/6;
+  -ms-grid-row: 4;
+  -ms-grid-row-span: 1;
   grid-row: 4/5; }
   .pro-items-right2::before {
     content: "";
@@ -871,7 +939,11 @@ figcaption {
     left: calc(50% - 4px); }
 
 .pro-items-left3 {
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 2;
   grid-column: 2/4;
+  -ms-grid-row: 5;
+  -ms-grid-row-span: 1;
   grid-row: 5/6; }
   .pro-items-left3::before {
     content: "";
@@ -964,6 +1036,16 @@ figcaption {
     padding-top: 1em;
     padding-bottom: 2em; }
 
+@media only screen and (max-width: 40em) {
+  .info::after {
+    content: url("/img/infography-mobile.png");
+    display: block;
+    width: 50%;
+    padding: 2em;
+    margin: 0 1em; }
+  .info img {
+    display: none; } }
+
 footer {
   color: white;
   text-align: center;
@@ -985,11 +1067,11 @@ footer {
     text-decoration: none;
     color: white;
     font-family: "Roboto", sans-serif;
-    letter-spacing: .1rem;
-    margin: 0 1.5em;
-    -webkit-transition: .5s ease-in-out;
-    -o-transition: .5s ease-in-out;
-    transition: .5s ease-in-out;
+    font-size: 2rem;
+    margin: 0 1em;
+    -webkit-transition: .4s ease-in-out;
+    -o-transition: .4s ease-in-out;
+    transition: .4s ease-in-out;
     position: relative; }
     footer a:hover {
       opacity: .4; }
